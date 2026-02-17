@@ -1,0 +1,21 @@
+{
+  "name": "nest-next-training",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.6.5",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend start:dev",
+    "dev": "concurrently -n frontend,backend -c blue,green \"pnpm run dev:frontend\" \"pnpm run dev:backend\"",
+    "build:frontend": "pnpm --filter frontend build",
+    "build:backend": "pnpm --filter backend build",
+    "build": "pnpm run build:frontend && pnpm run build:backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
